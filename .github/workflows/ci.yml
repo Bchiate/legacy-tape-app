@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Database and edge functions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.9.x
+
+      - name: Format
+        run: deno fmt --check
+
+      - name: Lint
+        run: deno lint
+
+      - name: Type-check
+        run: deno task check
+
+      # Handler tests run against an in-memory store; database tests apply the
+      # migrations to PGlite (Postgres in WebAssembly) and query as the anon and
+      # authenticated roles, so row-level security is enforced.
+      - name: Test
+        run: deno task test
+
+  web:
+    name: Web app
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build

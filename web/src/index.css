@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 215 30% 96%;
+    --foreground: 220 25% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 14%;
+
+    --primary: 25 55% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 92%;
+    --secondary-foreground: 220 25% 14%;
+
+    --muted: 215 15% 93%;
+    --muted-foreground: 215 12% 48%;
+
+    --accent: 30 40% 90%;
+    --accent-foreground: 220 25% 14%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 18% 88%;
+    --input: 215 18% 88%;
+    --ring: 25 55% 45%;
+
+    --radius: 0.875rem;
+
+    --sidebar-background: 215 20% 95%;
+    --sidebar-foreground: 220 25% 14%;
+    --sidebar-primary: 25 55% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 30 40% 90%;
+    --sidebar-accent-foreground: 220 25% 14%;
+    --sidebar-border: 215 18% 88%;
+    --sidebar-ring: 25 55% 45%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 215 15% 92%;
+    --card: 220 18% 12%;
+    --card-foreground: 215 15% 92%;
+    --popover: 220 18% 12%;
+    --popover-foreground: 215 15% 92%;
+    --primary: 30 55% 55%;
+    --primary-foreground: 220 20% 8%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 215 15% 92%;
+    --muted: 220 12% 18%;
+    --muted-foreground: 215 10% 55%;
+    --accent: 30 25% 22%;
+    --accent-foreground: 215 15% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 12% 22%;
+    --input: 220 12% 22%;
+    --ring: 30 55% 55%;
+    --sidebar-background: 220 18% 10%;
+    --sidebar-foreground: 215 15% 92%;
+    --sidebar-primary: 30 55% 55%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 30 25% 18%;
+    --sidebar-accent-foreground: 215 15% 92%;
+    --sidebar-border: 220 12% 22%;
+    --sidebar-ring: 30 55% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+/* Clouds animation - background only */
+@keyframes drift {
+  0% { transform: translateX(-10%); }
+  50% { transform: translateX(10%); }
+  100% { transform: translateX(-10%); }
+}
+@keyframes drift-slow {
+  0% { transform: translateX(5%); }
+  50% { transform: translateX(-8%); }
+  100% { transform: translateX(5%); }
+}
+
+.cloud-1 { animation: drift 25s ease-in-out infinite; }
+.cloud-2 { animation: drift-slow 30s ease-in-out infinite; }
+.cloud-3 { animation: drift 35s ease-in-out infinite; }
+.cloud-4 { animation: drift-slow 20s ease-in-out infinite; }

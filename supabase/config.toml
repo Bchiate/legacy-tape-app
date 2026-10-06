@@ -1,0 +1,21 @@
+# Local development with the Supabase CLI (`supabase start`, `supabase functions serve`).
+project_id = "legacy-tape"
+
+[db]
+major_version = 15
+
+# The device has no user session: upload_chunk, finalize_recording and
+# get_recording check its hardware id and pairing token. delete_device checks
+# the caller's session with Supabase Auth itself. Gateway JWT verification is
+# therefore off for all four (it would also reject publishable API keys).
+[functions.upload_chunk]
+verify_jwt = false
+
+[functions.finalize_recording]
+verify_jwt = false
+
+[functions.get_recording]
+verify_jwt = false
+
+[functions.delete_device]
+verify_jwt = false

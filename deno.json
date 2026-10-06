@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "imports": {
+    "@electric-sql/pglite": "npm:@electric-sql/pglite@0.3.16",
+    "@std/assert": "jsr:@std/assert@1.0.19"
+  },
+  "tasks": {
+    "check": "deno check supabase/",
+    "test": "deno test --allow-read supabase/",
+    "verify": "deno fmt --check && deno lint && deno task check && deno task test"
+  },
+  "fmt": {
+    "lineWidth": 100,
+    "include": [
+      "supabase/"
+    ]
+  },
+  "lint": {
+    "include": [
+      "supabase/"
+    ],
+    "rules": {
+      "exclude": [
+        "no-import-prefix"
+      ]
+    }
+  },
+  "exclude": [
+    "web/",
+    "ios/",
+    "docs/",
+    "node_modules/"
+  ],
+  "lock": {
+    "frozen": true
+  }
+}

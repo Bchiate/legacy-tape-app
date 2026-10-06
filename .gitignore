@@ -1,0 +1,20 @@
+# Dependencies and builds
+node_modules/
+web/dist/
+# The iOS app bundles the web build; produce it with `npm run build:ios` in web/.
+ios/MyLegacyTape/dist/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+supabase/.temp/
+supabase/.branches/
+
+# Xcode
+xcuserdata/
+DerivedData/
+*.xcuserstate
+
+# OS
+.DS_Store

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>MyLegacyTape needs microphone access to record your stories.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>MyLegacyTape uses speech recognition to transcribe your recordings in real time.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Legacy Tape uses Bluetooth to pair with your recorder device.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Used to scan the QR code on your Legacy Tape recorder.</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>legacytape</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>fct.MyLegacyTape.pairing</string>
+		</dict>
+	</array>
+</dict>
+</plist>
